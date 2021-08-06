@@ -18,18 +18,20 @@ function setDate() {
 }
 function UpdateTime() {
   var currentTime = moment().format("H");
+  console.log(currentTime);
   for (var i = 9; i <= 17; i++) {
     if (i > currentTime) {
-      $("#" + i).addClass(".future");
+      $("#" + i).addClass("future");
     } else if (i < currentTime) {
-      $("#" + i).addClass(".past");
+      $("#" + i).addClass("past");
     } else if (i == currentTime) {
-      $("#" + i).addClass(".present");
+      $("#" + i).addClass("present");
     }
     $("#t" + i).val(localStorage.getItem("s" + i));
   }
 }
 setDate();
+UpdateTime();
 
 savebtn.on("click", function () {
   var text = $(this).siblings("textarea").val();
